@@ -15,7 +15,7 @@ In a environment with `gnupg >= 2.2.12` that has access to the keys you want to 
   1. `cd static/.well-known`
   2. `gpg --list-options show-only-fpr-mbox  -k $PATTERN |  /usr/lib/gnupg/gpg-wks-client -v --install-key` 
   
-Note: the location of gpg-wks-client may differ between distributions. Check you package manager for files belonging to `gpupg`. 
+Note: the location of gpg-wks-client may differ between distributions. Check your package manager for files belonging to `gnupg`. 
 
 ## Building the openring feeds: 
   
