@@ -1,0 +1,21 @@
+version: '3'
+
+services: 
+  hugo:
+    image: klakegg/hugo:latest 
+    command: server
+    networks: 
+      - proxy 
+    volumes:
+      - "/var/ddata/ethandjeric.com/hugo:/src"
+     labels:
+      - traefik.frontend.rule=Host:ethandjeric.com,www.ethandjeric.com 
+      - traefik.docker.network=proxy
+      - traefik.port=1313 
+      - traefik.frontend.redirect.regex=^https?://www.ethandjeric.com/(.*)
+      - traefik.frontend.redirect.replacement=https://ethandjeric.com/$${1}
+    restart: on-failure 
+
+networks:
+  proxy:
+    external: true  
