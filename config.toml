@@ -1,0 +1,17 @@
+baseURL = "https://ethandjeric.com/"
+title = "Ethan Djeric's blog"
+pygmentsUseClasses = true
+uglyurls = true
+disablePathToLower = true
+
+[permalinks]
+blog = "/:year/:month/:day/:filename"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[markup.tableOfContents]
+ordered = true
+
+[outputs]
+section = ["HTML", "RSS", ]

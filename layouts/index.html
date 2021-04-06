@@ -1,0 +1,46 @@
+{{ partial "head.html" . }}
+
+<main class="index">
+  <section class="article-list">
+    <h1>{{$.Title}}</h1>
+
+    {{ range (where (where .Site.RegularPages "Section" "blog") "Params.nohtml" "!=" "true") }}
+    <div class="article">
+      <span class="date">{{.Date.Format "January 2, 2006"}}</span>
+      {{- if .OutputFormats.Get "html" }}
+      <a href="{{.Permalink}}">{{.Title}}</a>
+      {{- else if .OutputFormats.Get "gemtext" }}
+      {{ with .OutputFormats.Get "gemtext" }}
+      <a href="{{replace .Permalink "/gemini" "" 1 | safeURL}}">{{end}}{{.Title}}</a>
+      <small>[<a href="/gemini.html">what is gemini://?</a>]</small>
+      {{ end }}
+    </div>
+    {{ end }}
+  </section>
+
+  <aside>
+    <img
+      src="https://ethandjeric.com/avatar-148.jpg"
+      alt="My pfp"
+      width="148" height="148" />
+
+    <div class="text-center">
+      <a class="rss" href="/blog/index.xml">rss</a>
+      ·
+      <a href="misc.html">resources</a>
+    </div>
+
+    <dl class="external-links">
+      <dt>email</dt>
+      <dd><a href="mailto:ethan@ethandjeric.om">ethan@ethandjeric.com</a></dd>
+      <dt>github</dt>
+      <dd><a href="https://github.com/deafmute1">deafmute1</a></dd>
+      <dt>pgp</dt>
+      <dd><a href="/publickey.txt">7BC79407090047CA</a></dd>
+    </dl>
+
+    <small>
+      hi. 
+    </small>
+  </aside>
+</main>
