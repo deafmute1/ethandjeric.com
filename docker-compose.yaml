@@ -7,8 +7,8 @@ services:
     networks: 
       - proxy 
     volumes:
-      - "/var/ddata/ethandjeric.com/hugo:/src"
-     labels:
+      - "/var/ddata/ethandjeric.com/ethandjeric.com:/src"
+    labels:
       - traefik.frontend.rule=Host:ethandjeric.com,www.ethandjeric.com 
       - traefik.docker.network=proxy
       - traefik.port=1313 
