@@ -13,7 +13,8 @@ See [docker-compose.yaml](docker-compose.yaml).
 In a environment with `gnupg >= 2.2.12` that has access to the keys you want to serve:
 
   1. `cd static/.well-known`
-  2. `gpg --list-options show-only-fpr-mbox  -k $PATTERN |  /usr/lib/gnupg/gpg-wks-client -v --install-key` 
+  2. `gpg --list-options show-only-fpr-mbox  -k $PATTERN |  /usr/lib/gnupg/gpg-wks-client -v --install-key`
+  3. `cp static/.well-known/openpgpkey/ethandjeric.com/* /static/.well-known/openpgpkey/` 
   
 Note: the location of gpg-wks-client may differ between distributions. Check your package manager for files belonging to `gnupg`. 
 
